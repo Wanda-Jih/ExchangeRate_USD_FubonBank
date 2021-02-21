@@ -12,12 +12,18 @@ def show_buy_table(buy_price): #service=1
     if(temp<=buy_price):
         print('BUY USD NOW')
         print('The price is :',float(temp))
+        print('\n')
+    else:
+        print('請再等等\n')
 
 def show_sell_table(sell_price): #service=2      
     temp=currency[0:1][['銀行買入']].values
     if(temp>=sell_price):
         print('SELL USD NOW')
         print('The price is :',float(temp))
+        print('\n')
+    else:
+        print('請再等等\n')
     
 def service_costermus():
     tag=input('你要買美金(1))，還是要賣美金(2)\n')
@@ -29,29 +35,28 @@ def service_costermus():
         return service
     
 def sleeptime(hour,min,sec):
-    return hour*3600 + min*60 + sec;
+    return hour*3600 + min*60 + sec
 
 
 if __name__ == '__main__':
 
-    currency=table()
-    print('目前的匯率')
-    print(currency)
-    service=service_costermus()
-    delaytime = sleeptime(0,30,0)
     
+    delaytime = sleeptime(0,1,0)
     
-    if(service==1):
-        buy_price=input('你希望買到的最低價格:\n')
-        while 1==1:
-            currency=table()
-            show_buy_table(float(buy_price))
-            time.sleep(delaytime)
-             
+    while True:
         
-    else:    
-        sell_price=input('你希望賣出的價格高於:\n')
-        while 1==1:
-            currency=table()
+        currency=table()
+        print('目前的匯率')
+        print(currency)
+        service=service_costermus()
+    
+        # 買美金
+        if(service==1): 
+            buy_price=input('你希望買到的最低價格:\n')
+            show_buy_table(float(buy_price))
+                 
+        # 賣美金   
+        else:    
+            sell_price=input('你希望賣出的價格高於:\n')
             show_sell_table(float(sell_price))
-            time.sleep(delaytime)
+        print('############################')
