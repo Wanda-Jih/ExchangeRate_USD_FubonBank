@@ -1,5 +1,7 @@
 # Bank Forex Tool
 
+Let user to check if it is the good timing to buy or sell USD. Also, you can use it to predict the selling and buying price for future.
+
 Webscraping data from the [Fubon Bank USD forex website](https://www.fubon.com/banking/personal/deposit/exchange_rate/exchange_rate_tw_photo.htm?urlParameter=1D&currency=USD)
 
 Using Python, Autoregressive Model to finish this project
